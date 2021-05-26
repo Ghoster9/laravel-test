@@ -21,13 +21,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item @yield("title-active-home")">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="{{url('/')}}">Home</a>
             </li>
             <li class="nav-item @yield("title-active-about")">
-              <a class="nav-link" href="/about">About</a>
+              <a class="nav-link" href="{{url('/about')}}">About</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Mahasiswa</a>
+            <li class="nav-item @yield("title-active-mahasiwa")">
+                <a class="nav-link" href="{{url('/mahasiswa')}}">Mahasiswa</a>
               </li>
           </ul>
         </div>

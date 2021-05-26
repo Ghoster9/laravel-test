@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\MahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('components.index');
-});
+// Route::get('/', function () {
+//     return view('components.index');
+// });
 
-Route::get('/about', function () {
-    $nama  = "jack";
-    return view('components.about', ["nama" => $nama]);
-});
+// Route::get('/about', function () {
+//     $nama  = "jack";
+//     return view('components.about', ["nama" => $nama]);
+// });
+
+
+Route::get('/', [PagesController::class, 'home']);
+Route::get('/about', [PagesController::class, 'about']);
+
+
+
+Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
