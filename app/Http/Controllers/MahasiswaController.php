@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Student;
+use App\Models\Mahasiswa;
 
 class MahasiswaController extends Controller
 {
@@ -24,7 +24,7 @@ class MahasiswaController extends Controller
          * method all merupakan default untuk memangill semua data di db
          * docs Eloquent
          */
-        $mahasiswa = Student::all();
+        $mahasiswa = Mahasiswa::all();
         return view('mahasiswa.index', ['mahasiswa' => $mahasiswa]);
     }
 

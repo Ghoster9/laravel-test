@@ -29,6 +29,9 @@
             <li class="nav-item @yield("title-active-mahasiwa")">
                 <a class="nav-link" href="{{url('/mahasiswa')}}">Mahasiswa</a>
               </li>
+            <li class="nav-item @yield("title-active-students")">
+                <a class="nav-link" href="{{url('/students')}}">Students</a>
+              </li>
           </ul>
         </div>
         </div>
