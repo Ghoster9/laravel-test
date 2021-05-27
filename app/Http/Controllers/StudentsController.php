@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class StudentsController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -88,19 +89,18 @@ class StudentsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified resource. //untuk menampilkan form edit
      *
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
     public function edit(Student $student)
     {
-        //
-
+        return view('students.edit', compact('student'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage.// update untuk mengubah datanya
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Student  $student
@@ -108,7 +108,21 @@ class StudentsController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'npm' => 'required|size:9',
+        ]);
+
+        // ini method untuk update dimana id yang didapat dari $student->id dan akan mengubpdate semua inputan
+        Student::where('id', $student->id)
+            ->update([
+                'nama' => $request->nama,
+                'npm' => $request->npm,
+                'email' => $request->email,
+                'jurusan' => $request->jurusan
+            ]);
+
+        return redirect('/students')->with('status', 'Data mahasiswa berhasil diubah');
     }
 
     /**
@@ -120,5 +134,8 @@ class StudentsController extends Controller
     public function destroy(Student $student)
     {
         //
+        // kenapa $student->id karena jika student saja mak semua data yang terinput perlu id agar menujuk ke id
+        Student::destroy($student->id);
+        return redirect('/students')->with('status', 'Data mahasiswa berhasil dihapus');
     }
 }
