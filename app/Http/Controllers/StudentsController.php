@@ -54,7 +54,7 @@ class StudentsController extends Controller
         // validasi agar form diminta sesuai // jika validasi tidak terpenuhi maka dia akan reload saja. tidak melakukan aksis apapun.
         $request->validate([
             'nama' => 'required',
-            'nrp' => 'required|size:9',
+            'npm' => 'required|size:9',
         ]);
 
 
